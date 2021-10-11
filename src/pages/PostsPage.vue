@@ -28,24 +28,7 @@
          v-if="!isPostsLoading"
       />
       <p v-else>Идет загрузка...</p>
-      <div class="observer"
-           v-intersection="loadMorePosts"
-      />
-      <!--
-       <div class="page__wrapper">
-          <div
-             v-for="pageNumber in totalPages"
-             :key="pageNumber"
-             class="page"
-             :class="{
-                'current-page': page === pageNumber
-             }"
-             @click="changePage(pageNumber)"
-          >
-             {{pageNumber}}
-          </div>
-       </div>
-       -->
+      <div class="observer" v-intersection="loadMorePosts"/>
    </div>
 </template>
 
@@ -88,10 +71,6 @@ export default {
       showDialog() {
          this.dialogVisible = true
       },
-      // changePage(pageNumber){
-      //    this.page = pageNumber
-      //    this.fetchPosts()
-      // },
       async fetchPosts() {
          this.isPostsLoading = true
          try {
